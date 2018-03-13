@@ -80,7 +80,8 @@ function Level4() {
 	//option 2 gives an alert/pop-up to the user.
 	opt2.innerHTML = 'Jump';
 	opt2.onclick = function(){
-	 alert('Wtf you wanna die?');
+	 alert('You just killed yourself.');
+	 location.reload();
 	}
 	opt3.innerHTML = 'Use a paraglider';
 	opt3.onclick = function(){
