@@ -47,8 +47,12 @@ function Level2() {
 		HasKey = true;
 		alert('You found a Key!');
 }
-	opt3.setAttribute("onClick", "Level1();");
 	opt3.innerHTML = 'Go Right';
+
+	opt3.onclick = function(){
+		alert('It was a TRAP!, the plants in this path were alive and you died.');
+		location.reload();
+	}
 }
 function Level3() {
 	console.log("Level3()");
