@@ -6,7 +6,6 @@ var img = document.getElementById('level_image');
 var lvl = document.getElementById('level_title')
 var HasKey = false;
 var HasSword = false;
-var HasExpierence = false;
 var HasLevelUp = false;
 var HasRest = false;
 //Startpage
@@ -17,6 +16,7 @@ opt2.onclick = function(){
 	opt1.style.visibility='visible';
 	opt3.style.visibility='visible';
 }
+
 function Level1() {
 	console.log("Level1()");
 	lvl.innerHTML = 'Level 1';
@@ -27,14 +27,15 @@ function Level1() {
 	opt2.innerHTML = 'Go to the building';
 	opt2.onclick = function(){
 		if(HasKey){
-			Level3();
-		} else {
-			alert('You need a key to enter this building.');
+			Level3();}
+			else {
+				alert('You need a key to enter this building.');
+			}
 		}
+		opt3.innerHTML ='Climb the mountain';
+		opt3.setAttribute("onClick", "Level4();");
 	}
-	opt3.innerHTML ='Climb the mountain';
-	opt3.setAttribute("onClick", "Level4();");
-}
+
 function Level2() {
 	console.log("Level2()");
 	lvl.innerHTML = 'Level 2';
@@ -46,14 +47,11 @@ function Level2() {
 	opt2.onclick = function(){
 		HasKey = true;
 		alert('You found a Key!');
-}
-	opt3.innerHTML = 'Go Right';
-
-	opt3.onclick = function(){
-		alert('It was a TRAP!, the plants in this path were alive and you died.');
-		location.reload();
 	}
+	opt3.innerHTML = 'Go Right';
+	opt3.setAttribute("onClick", "Level1();");
 }
+
 function Level3() {
 	console.log("Level3()");
 	lvl.innerHTML = 'Level 3';
@@ -62,15 +60,16 @@ function Level3() {
 	opt1.onclick = function(){
 		Level1();
 		opt2.style.visibility='visible';
+		}
+		opt2.style.visibility='hidden';
+		//option 3 puts a sword in the user's inventory.
+		opt3.innerHTML = 'Take the Sword';
+		opt3.onclick = function(){
+			HasSword = true;
+			alert('You found a sword!');
+		}
 	}
-	opt2.style.visibility='hidden';
-	//option 3 puts a sword in the user's inventory.
-	opt3.innerHTML = 'Take the Sword';
-	opt3.onclick = function(){
-		HasSword = true;
-	 alert('You found a sword!');
-	}
-}
+
 function Level4() {
 	console.log("Level4()");
 	lvl.innerHTML = 'Level 4';
@@ -80,19 +79,13 @@ function Level4() {
 	//option 2 gives an alert/pop-up to the user.
 	opt2.innerHTML = 'Jump';
 	opt2.onclick = function(){
-	 alert('You just killed yourself.');
-	 location.reload();
+		alert('You just killed yourself.');
+		location.reload();
 	}
+	opt3.setAttribute("onClick", "Level5();");
 	opt3.innerHTML = 'Use a paraglider';
-	opt3.onclick = function(){
-		if(HasExpierence){
-			Level9();
-		}
-		else{
-			alert ('You need expierence')
-		}
 }
-}
+
 function Level5() {
 	console.log("Level5()");
 	lvl.innerHTML = 'Level 5';
@@ -114,6 +107,7 @@ function Level5() {
 		opt2.style.visibility='visible';
 	}
 }
+
 function Level6() {
 	console.log("Level6()");
 	lvl.innerHTML = 'Level 5';
@@ -122,12 +116,13 @@ function Level6() {
 	opt2.style.visibility='hidden';
 	opt3.style.visibility='hidden';
 }
+
 function Level0() {
 	console.log("Level0()");
 	lvl.innerHTML = 'Level 0';
 	img.src = 'img/forest-temple.jpg';
 	// only allow option 1 if user has a sword in his inventory
-	opt1.innerHTML = 'Enter the Forest Temple';
+	opt1.innerHTML = 'Enter the Forest of the Dead Temple';
 	opt2.style.visibility='hidden';
 	opt3.innerHTML ='Go back';
 	opt1.onclick = function(){
@@ -138,44 +133,20 @@ function Level0() {
 		opt2.style.visibility='visible';
 	}
 }
+
 function Level7() {
 	console.log("Level7()");
-	lvl.innerHTML = 'Level 7 - You found a chest';
-	img.src = 'img/chest.jpg';
-	// only allow option 1 if user has a sword in his inventory
-	opt1.innerHTML = 'Take the items';
-	opt2.style.visibility='hidden';
-	opt3.innerHTML ='Leave the building';
-	opt1.onclick = function(){
-		alert('You found a shield!');
+	lvl.innerHTML = 'Level 7 - Forest of the Dead Temple';
+	img.src = 'img/dead.jpg';
+	opt1.style.visibility='hidden';
+	opt2.style.visibility='visible';
+	opt2.innerHTML = 'Restart';
+	opt3.style.visibility='hidden';
+	opt2.onclick = function(){
+		location.reload();
 	}
-	opt3.onclick = function(){
-		Level8();
+}
 
-	}
-}
-function Level8() {
-	console.log("Level8()");
-	lvl.innerHTML = 'You have been attacked!';
-	img.src = 'img/fight2.jpg';
-	// only allow option 1 if user has a sword in his inventory
-	opt1.innerHTML = 'Fight';
-	opt2.style.visibility='hidden';
-	opt3.innerHTML ='Run';
-	opt1.onclick = function(){
-		if(HasSword){
-			Level2();
-			HasExpierence = true;
-			opt2.style.visibility='visible';
-		} else {
-			alert('YOU HAVE NO WEAPON!');
-		}
-	}
-	opt3.onclick = function(){
-		Level2();
-		opt2.style.visibility='visible';
-	}
-}
 function Level9() {
 	console.log("Level9()");
 	lvl.innerHTML = 'You found a safehouse!';
@@ -192,14 +163,17 @@ function Level9() {
 	opt2.innerHTML='Rest';
 	opt2.onclick = function(){
 			HasRest = true;
-			alert('Test');
+			alert('You took a rest');
 		}
 	opt3.innerHTML ='Training';
 	opt3.onclick = function(){
+		if(HasSword){
 		Level10();
-
+	} else {
+		alert ('You have no weapon! to train with.');}
 	}
 }
+
 function Level10() {
 	console.log("Level10()");
 	lvl.innerHTML = 'Training ground';
