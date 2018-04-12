@@ -17,36 +17,56 @@ body {
 main{
 	text-align: center;
 }
+
 button{
   color: Purple;   /* Green */ /*#4CAF50*/
   padding: 15px 32px;
   display: inline-block;
-  font-size: 16px;
-}
-
-button{
-	background:
-	transparent;
+  font-size: 23px;
+	background: transparent;
 	border: none;
-	font-size: 23px;
 }
 
 #option1{
 	position: absolute;
-     right: 70%;
-     width: 180px;
-     top: 10;
+	transform: translate(-75%, -50%);
+	text-align: center;
+	left: 25%;
+	margin-top: 30px;
 }
+
 #option2{
 	position: absolute;
-		 right: 45%;
-		 width: 180px;
-		 top: 10;
+  transform: translate(-50%, -50%);
+	text-align: center;
+	left: 50%;
+	margin-top: 30px;
 }
 
 #option3{
 	position: absolute;
-		 left: 70%;
-		 width: 180px;
-		 top: 10;
-	 }
+	transform: translate(-25%, -50%);
+	text-align: center;
+	left: 75%;
+	margin-top: 30px;
+}
+
+#h1{
+	position: absolute;
+	font-size: 30px;
+	margin-bottom: 50px;
+	background-color: green;
+	bottom: 0;
+	margin-left: 15px;
+
+}
+#level_image{
+	background-size: cover;
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index:-1;
+	background-repeat: no-repeat !important;
+	background-attachment: fixed !important;
+}
