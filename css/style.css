@@ -19,12 +19,14 @@ main{
 }
 
 button{
-  color: Purple;   /* Green */ /*#4CAF50*/
+  color: #b30000;
   padding: 15px 32px;
   display: inline-block;
   font-size: 23px;
 	background: transparent;
-	border: none;
+	border: 2px;
+	border-style: solid;
+	border-color:lightblue;
 }
 
 #option1{
